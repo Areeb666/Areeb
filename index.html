@@ -6,6 +6,17 @@
     
     <title>Areeb </title>
     
+    <!-- Added particles.js and other effect libraries -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    
+    <!-- AOS - Animate On Scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    
 </head>
 <style>
@@ -26,12 +37,349 @@ body{
     width: 100%;
     height: 100vh;
     background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
+    overflow-x: hidden;
 }
+
+/* Particles background container */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+/* Matrix rain effect */
+.matrix-rain {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+/* Glitch effect for text */
+.glitch {
+    position: relative;
+    color: #ff0000;
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation-duration: 3s;
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(31px, 9999px, 94px, 0);
+        transform: skew(0.58deg);
+    }
+    5% {
+        clip: rect(7px, 9999px, 53px, 0);
+        transform: skew(0.11deg);
+    }
+    10% {
+        clip: rect(1px, 9999px, 14px, 0);
+        transform: skew(0.05deg);
+    }
+    15% {
+        clip: rect(82px, 9999px, 71px, 0);
+        transform: skew(0.11deg);
+    }
+    20% {
+        clip: rect(79px, 9999px, 5px, 0);
+        transform: skew(0.59deg);
+    }
+    25% {
+        clip: rect(17px, 9999px, 16px, 0);
+        transform: skew(0.43deg);
+    }
+    30% {
+        clip: rect(53px, 9999px, 31px, 0);
+        transform: skew(0.94deg);
+    }
+    35% {
+        clip: rect(69px, 9999px, 56px, 0);
+        transform: skew(0.53deg);
+    }
+    40% {
+        clip: rect(2px, 9999px, 14px, 0);
+        transform: skew(0.33deg);
+    }
+    45% {
+        clip: rect(18px, 9999px, 42px, 0);
+        transform: skew(0.64deg);
+    }
+    50% {
+        clip: rect(1px, 9999px, 63px, 0);
+        transform: skew(0.28deg);
+    }
+    55% {
+        clip: rect(41px, 9999px, 59px, 0);
+        transform: skew(0.16deg);
+    }
+    60% {
+        clip: rect(10px, 9999px, 27px, 0);
+        transform: skew(0.05deg);
+    }
+    65% {
+        clip: rect(44px, 9999px, 65px, 0);
+        transform: skew(0.12deg);
+    }
+    70% {
+        clip: rect(37px, 9999px, 25px, 0);
+        transform: skew(0.67deg);
+    }
+    75% {
+        clip: rect(99px, 9999px, 43px, 0);
+        transform: skew(0.88deg);
+    }
+    80% {
+        clip: rect(36px, 9999px, 13px, 0);
+        transform: skew(0.64deg);
+    }
+    85% {
+        clip: rect(70px, 9999px, 67px, 0);
+        transform: skew(0.36deg);
+    }
+    90% {
+        clip: rect(82px, 9999px, 97px, 0);
+        transform: skew(0.72deg);
+    }
+    95% {
+        clip: rect(38px, 9999px, 27px, 0);
+        transform: skew(0.12deg);
+    }
+    100% {
+        clip: rect(82px, 9999px, 42px, 0);
+        transform: skew(0.33deg);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(65px, 9999px, 38px, 0);
+        transform: skew(0.05deg);
+    }
+    5% {
+        clip: rect(55px, 9999px, 46px, 0);
+        transform: skew(0.19deg);
+    }
+    10% {
+        clip: rect(17px, 9999px, 30px, 0);
+        transform: skew(0.51deg);
+    }
+    15% {
+        clip: rect(30px, 9999px, 88px, 0);
+        transform: skew(0.56deg);
+    }
+    20% {
+        clip: rect(76px, 9999px, 69px, 0);
+        transform: skew(0.87deg);
+    }
+    25% {
+        clip: rect(75px, 9999px, 66px, 0);
+        transform: skew(0.27deg);
+    }
+    30% {
+        clip: rect(40px, 9999px, 20px, 0);
+        transform: skew(0.07deg);
+    }
+    35% {
+        clip: rect(62px, 9999px, 15px, 0);
+        transform: skew(0.01deg);
+    }
+    40% {
+        clip: rect(97px, 9999px, 71px, 0);
+        transform: skew(0.04deg);
+    }
+    45% {
+        clip: rect(11px, 9999px, 35px, 0);
+        transform: skew(0.71deg);
+    }
+    50% {
+        clip: rect(46px, 9999px, 62px, 0);
+        transform: skew(0.53deg);
+    }
+    55% {
+        clip: rect(82px, 9999px, 13px, 0);
+        transform: skew(0.76deg);
+    }
+    60% {
+        clip: rect(47px, 9999px, 3px, 0);
+        transform: skew(0.06deg);
+    }
+    65% {
+        clip: rect(44px, 9999px, 25px, 0);
+        transform: skew(0.46deg);
+    }
+    70% {
+        clip: rect(38px, 9999px, 44px, 0);
+        transform: skew(0.11deg);
+    }
+    75% {
+        clip: rect(100px, 9999px, 33px, 0);
+        transform: skew(0.17deg);
+    }
+    80% {
+        clip: rect(27px, 9999px, 9px, 0);
+        transform: skew(0.99deg);
+    }
+    85% {
+        clip: rect(75px, 9999px, 90px, 0);
+        transform: skew(0.01deg);
+    }
+    90% {
+        clip: rect(56px, 9999px, 75px, 0);
+        transform: skew(0.07deg);
+    }
+    95% {
+        clip: rect(50px, 9999px, 66px, 0);
+        transform: skew(0.64deg);
+    }
+    100% {
+        clip: rect(29px, 9999px, 35px, 0);
+        transform: skew(0.35deg);
+    }
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: skew(0deg);
+    }
+    10% {
+        transform: skew(1deg);
+    }
+    20% {
+        transform: skew(0deg);
+    }
+    30% {
+        transform: skew(-1deg);
+    }
+    40% {
+        transform: skew(-0.5deg);
+    }
+    50% {
+        transform: skew(0.5deg);
+    }
+    60% {
+        transform: skew(0deg);
+    }
+    70% {
+        transform: skew(1deg);
+    }
+    80% {
+        transform: skew(-1deg);
+    }
+    90% {
+        transform: skew(0.5deg);
+    }
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+/* Neon text effect */
+.neon-text {
+    color: #fff;
+    text-shadow: 
+      0 0 5px #fff, 
+      0 0 10px #fff, 
+      0 0 15px #ff0000, 
+      0 0 20px #ff0000, 
+      0 0 25px #ff0000, 
+      0 0 30px #ff0000, 
+      0 0 35px #ff0000;
+    animation: neon-pulse 1.5s infinite alternate, neon-flicker 5s infinite;
+}
+
+@keyframes neon-pulse {
+    from {
+        text-shadow: 
+          0 0 5px #fff, 
+          0 0 10px #fff, 
+          0 0 15px #ff0000, 
+          0 0 20px #ff0000, 
+          0 0 25px #ff0000, 
+          0 0 30px #ff0000, 
+          0 0 35px #ff0000;
+    }
+    to {
+        text-shadow: 
+          0 0 2px #fff, 
+          0 0 5px #fff, 
+          0 0 7px #ff0000, 
+          0 0 10px #ff0000, 
+          0 0 12px #ff0000, 
+          0 0 15px #ff0000, 
+          0 0 17px #ff0000;
+    }
+}
+
+@keyframes neon-flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: 1;
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.5;
+    }
+}
+
+/* Code typing effect */
+.typing-code {
+    border-right: 2px solid #ff0000;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40) infinite, blink-caret .75s step-end infinite;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+}
+
+@keyframes typing {
+    0% { width: 0 }
+    50% { width: 100% }
+    90% { width: 100% }
+    100% { width: 0 }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff0000 }
+}
+
 nav{
     width: auto;
     height: auto;
-    
-    
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+    z-index: 100;
+    position: relative;
 }
 .nav-container{
     width: 100%;
@@ -532,46 +880,202 @@ section{
     font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
     margin: 10px 0;
 }
-.social-links i{
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.social-link {
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links i {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
-    background-color:transparent;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
     border: 0.2rem solid rgb(109, 0, 0);
     border-radius: 50%;
-    color:rgb(109, 0, 0);
-    margin: 5px 10px;
+    color: rgb(255, 0, 0);
     font-size: 1.5rem;
-    transition: 0.2s linear;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-.social-links i:hover{
-    scale: 1.3;
+
+.social-links i:hover {
+    transform: translateY(-5px) scale(1.1);
     color: white;
     background-color: rgb(109, 0, 0);
-    filter: drop-shadow(0 0 10px rgb(109, 0, 0));
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
 }
-.content button{
-    width: 40%;
-    height: 6vh;
-    margin: 30px;
-    background-color: rgb(255, 0, 0);
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,0,0,0.8) 0%, rgba(255,0,0,0) 70%);
+    opacity: 0;
+    transform: scale(0.1);
+    filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.social-link:hover::before {
+    opacity: 0.5;
+    transform: scale(1.5);
+}
+
+/* Improved card styling */
+.message, .contact, .skills {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(0, 0, 0, 0.95));
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+.message:hover, .contact:hover, .skills:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 50px rgba(255, 0, 0, 0.2);
+}
+
+/* Clean form styling */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
-    border: none;
-    outline: none;
-    font-size: 100%;
-    font-weight: 700;
-    border-radius: 5px;
-    transition: 0.2s linear;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
-.content button:hover{
- scale: 1.1;
- color: rgb(109, 0, 0);
- border: 2px solid rgb(109, 0, 0);
- background-color: transparent;
- font-weight: 700;
- box-shadow: 0 0 40px rgb(109, 0, 0);
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    background-color: rgba(10, 10, 10, 0.5);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ff0000;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.message button {
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #800202, #ff0000);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.message button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5);
+    background: linear-gradient(45deg, #ff0000, #800202);
+}
+
+/* Skill bar improvements */
+.mainskills1, .mainskills2, .mainskills3, .mainskills4, 
+.mainskills5, .mainskills6, .mainskills7, .mainskills8,
+.mainskills9, .mainskills10, .mainskills11, .mainskills12,
+.mainskills13 {
+    margin: 25px;
+    background: rgba(90, 81, 81, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.sub1, .sub2, .sub3, .sub4, .sub5, .sub6, .sub7, 
+.sub8, .sub9, .sub10, .sub11, .sub12, .sub13 {
+    background: linear-gradient(90deg, #800202, #ff0000);
+    border-radius: 30px;
+    padding: 10px;
+    position: relative;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.skills li {
+    margin-bottom: 20px;
+}
+
+.skills li b {
+    font-size: 18px;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Improved navbar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(255, 0, 0);
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.nav-container .links a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
 }
 
 @media (max-width:884px) {
@@ -599,8 +1103,321 @@ section{
   
    
 }  
+
+/* Adding new hover effects for skill bars */
+.mainskills1:hover .sub1,
+.mainskills2:hover .sub2,
+.mainskills3:hover .sub3,
+.mainskills4:hover .sub4,
+.mainskills5:hover .sub5,
+.mainskills6:hover .sub6,
+.mainskills7:hover .sub7,
+.mainskills8:hover .sub8,
+.mainskills9:hover .sub9,
+.mainskills10:hover .sub10,
+.mainskills11:hover .sub11,
+.mainskills12:hover .sub12,
+.mainskills13:hover .sub13 {
+    animation: pulse 1s infinite;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+/* Smooth reveal animations for elements */
+.reveal-left {
+    visibility: hidden;
+}
+
+.reveal-right {
+    visibility: hidden;
+}
+
+.reveal-up {
+    visibility: hidden;
+}
+
+.reveal-down {
+    visibility: hidden;
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Enhanced button effects */
+.content button:hover, .message button:hover {
+    animation: buttonGlow 1.5s infinite alternate;
+}
+
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 5px rgb(109, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 40px rgb(255, 0, 0);
+    }
+}
+
+/* Enhance form fields with focus effects */
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.contact, .message, .skills {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact:before, .message:before, .skills:before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, rgba(255,0,0,0) 20%, rgba(255,0,0,0.3) 30%, rgba(255,0,0,0) 40%);
+    transform: rotate(45deg);
+    animation: shine 5s infinite;
+    pointer-events: none;
+}
+
+@keyframes shine {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+    100% {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+/* Stylish content section */
+.content {
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+.content h1 {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    background: linear-gradient(to right, #800202, #ff0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.content button {
+    width: auto;
+    min-width: 180px;
+    padding: 12px 30px;
+    margin: 30px 0;
+    background: linear-gradient(45deg, #800202, #ff0000);
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.content button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0000, #800202);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.content button:hover::before {
+    width: 100%;
+}
+
+.content button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5);
+}
+
+/* Progress bar animation for skills - shown on page load */
+@keyframes progressBarAnimation {
+    0% {
+        width: 0%;
+    }
+}
+
+.sub1, .sub2, .sub3, .sub4, .sub5, .sub6, .sub7, 
+.sub8, .sub9, .sub10, .sub11, .sub12, .sub13 {
+    animation: progressBarAnimation 1.5s ease-out forwards;
+}
+
+/* Improved typewriter effect */
+.typewriter span::before {
+    content: "Developer";
+    animation: words 5s infinite;
+    background: linear-gradient(to right, #ff0000, #800202);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.typewriter span::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: #ff0000;
+    border-radius: 2px;
+    animation: cursor 0.6s linear infinite, pulseGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+    }
+}
+
+/* Enhanced particle background */
+#particles-js {
+    animation: backgroundColorPulse 10s infinite alternate;
+}
+
+@keyframes backgroundColorPulse {
+    0% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+    50% {
+        background-color: rgba(20, 0, 0, 1);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
+
+/* Contact section improvements */
+.contact p {
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contact p:hover {
+    background: rgba(255, 0, 0, 0.1);
+    transform: translateX(10px);
+}
+
+.contact p span {
+    background: linear-gradient(to right, #ff0000, #800202);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.contact h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ff0000, transparent);
+    animation: underlineAnimate 2s infinite;
+}
+
+@keyframes underlineAnimate {
+    0%, 100% {
+        width: 50%;
+        left: 25%;
+    }
+    50% {
+        width: 80%;
+        left: 10%;
+    }
+}
 </style>
 <body>
+    <!-- Added particles.js container -->
+    <div id="particles-js"></div>
+    <canvas class="matrix-rain"></canvas>
+    
     <nav>
         <div class="nav-container">
             
@@ -609,47 +1426,48 @@ section{
                 <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="#about">About</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="#skills">Skills</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="#message">Message me</a></div>
-               
-                
-                
             </div>
-            
         </div>
-        
-        
     </nav>
-        <section>
-            <div class="main-container" id="about">
-                <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
-                    <img src="Areeb gradient.png" alt="">
-                </div>
-                <div class="content">
-                    <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">Hey I'm <span>Areeb</span></h1>
-                    <div class="typewriter" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">I'm a <span></span></div>
-                    <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="1000">I am a programmer. I mainly use Python. I can also work on HTML,CSS,Javascript,c#,c, java and C++. I can also build Artificial Intelelgence, Machine learning and robotics models. I also have graphic designing, video editing  and 3d animation skills. I have mastered Photoshop , Premere Pro and Blender. I have also mastered Robotics. Speedcubing is my additional skill. I can build apps, websites and portfolios. I can  create posters and banners. I can edit videos. I can also do 3d animation. </p>
+    
+    <section>
+        <div class="main-container" id="about">
+            <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
+                <img src="Areeb gradient.png" alt="">
+            </div>
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">Hey I'm <span class="glitch" data-text="Areeb">Areeb</span></h1>
+                <div class="typewriter" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">I'm a <span></span></div>
+                <div class="typing-code">function initPortfolio() { console.log("Welcome to my world"); }</div>
+                <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="1000">I am a programmer. I mainly use Python. I can also work on HTML,CSS,Javascript,c#,c, java and C++. I can also build Artificial Intelelgence, Machine learning and robotics models. I also have graphic designing, video editing  and 3d animation skills. I have mastered Photoshop , Premere Pro and Blender. I have also mastered Robotics. Speedcubing is my additional skill. I can build apps, websites and portfolios. I can  create posters and banners. I can edit videos. I can also do 3d animation. </p>
 
-                    <div class="btn" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="1300">
-                        <button onclick="window.location.href='#message'">Message me.</button>
-                    </div>
+                <div class="social-links" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+                    <a href="https://github.com/Areeb666" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/dar_areeb_07" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+
+                <div class="btn" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="1300">
+                    <button onclick="window.location.href='#message'">Message me.</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
          
 
    
         <div class="skills" id="skills">
-            <h1>Skills:</h1>
+            <h1 class="neon-text">Skills:</h1>
             
             <ul>
-                <li>
+                <li class="reveal-left">
                     <b>Python :</b>
                     <div class="mainskills1">
                         <div class="sub1">
                         </div>
                     </div> 
                 </li>
-                <li>
+                <li class="reveal-right">
                     <b>HTML :</b>
                     <div class="mainskills2">
                         <div class="sub2">
@@ -657,77 +1475,77 @@ section{
                     </div>
 
                 </li>
-                <li>
+                <li class="reveal-left">
                     <b>CSS :</b>
                     <div class="mainskills3">
                         <div class="sub3">
                         </div>
                     </div>
                 </li>
-                <li> 
+                <li class="reveal-right"> 
                     <b>Javascript : </b>
                     <div class="mainskills4">
                         <div class="sub4">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-left">
                     <b>C :</b>
                     <div class="mainskills5">
                         <div class="sub5">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-right">
                     <b>C# :</b>
                     <div class="mainskills6">
                         <div class="sub6">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-left">
                     <b>C++ :</b>
                     <div class="mainskills7">
                         <div class="sub7">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-right">
                     <b>Java :</b>
                     <div class="mainskills8">
                         <div class="sub8">
                         </div>
                     </div>
                 </li>
-                <li> 
+                <li class="reveal-left"> 
                     <b>Adobe Photoshop  : </b>
                     <div class="mainskills9">
                         <div class="sub9">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-right">
                     <b>Adobe Premere Pro :</b>
                     <div class="mainskills10">
                         <div class="sub10">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-left">
                     <b>Blender :</b>
                     <div class="mainskills11">
                         <div class="sub11">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-right">
                     <b>Robotics :</b>
                     <div class="mainskills12">
                         <div class="sub12">
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="reveal-left">
                     <b>Speed cubing :</b>
                     <div class="mainskills13">
                         <div class="sub13">
@@ -739,12 +1557,12 @@ section{
             
  
         <div class="message" id="message">
-            <h1>Message me:
+            <h1 class="reveal-up">Message me:
                 
             </h1>
             <br>
             
-            <form action="https://formsubmit.co/areebaltaf007@gmail.com" method="POST">
+            <form action="https://formsubmit.co/areebaltaf007@gmail.com" method="POST" class="reveal-up">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -779,4 +1597,251 @@ section{
               
             
 </body>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true
+    });
+    
+    // Initialize particles.js
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 100,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ff0000"
+            },
+            "shape": {
+                "type": ["circle", "triangle", "edge"],
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 10,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ff0000",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": true,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": true,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+
+    // Enhanced Matrix rain effect
+    const canvas = document.querySelector('.matrix-rain');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/\\$%^&*()_+-=[]{}|;:,.?';
+    const charArray = chars.split('');
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+
+    const drops = [];
+    for (let i = 0; i < columns; i++) {
+        drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+    }
+
+    const colors = ['#0F0', '#00FF00', '#00CC00', '#009900'];
+
+    function drawMatrixRain() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = charArray[Math.floor(Math.random() * charArray.length)];
+            
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+            ctx.font = fontSize + 'px monospace';
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            } else {
+                drops[i]++;
+            }
+        }
+    }
+
+    // Initialize VANTA.NET background effect with improved settings
+    VANTA.NET({
+        el: "#particles-js",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0xff0000,
+        backgroundColor: 0x0,
+        points: 15,
+        maxDistance: 20.00,
+        spacing: 16.00
+    });
+
+    // Animation loop with optimized performance
+    let animationFrame;
+    function animate() {
+        drawMatrixRain();
+        animationFrame = requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Improved resize event handler
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            cancelAnimationFrame(animationFrame);
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const columns = canvas.width / fontSize;
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+            }
+            animate();
+        }, 250);
+    });
+
+    // Add scroll reveal animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Reveal animations based on scroll position
+        const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up, .reveal-down');
+        
+        function revealOnScroll() {
+            const windowHeight = window.innerHeight;
+            
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - 100) {
+                    if (element.classList.contains('reveal-left')) {
+                        element.style.animation = 'slideInLeft 1s ease forwards';
+                    } else if (element.classList.contains('reveal-right')) {
+                        element.style.animation = 'slideInRight 1s ease forwards';
+                    } else if (element.classList.contains('reveal-up')) {
+                        element.style.animation = 'slideInUp 1s ease forwards';
+                    } else if (element.classList.contains('reveal-down')) {
+                        element.style.animation = 'slideInDown 1s ease forwards';
+                    }
+                    element.style.visibility = 'visible';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial check
+        revealOnScroll();
+    });
+
+    // Add 3D tilt effect to cards
+    const cards = document.querySelectorAll('.message, .contact, .skills');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element
+            const y = e.clientY - rect.top; // y position within the element
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const angleX = (y - centerY) / 20;
+            const angleY = (centerX - x) / 20;
+            
+            this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(10px)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    });
+</script>
 </html>
